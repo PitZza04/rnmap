@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import Layout from "../../components/templates/safe-area-view";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
-    <View>
+    <Layout>
       <Text>LoginScreen</Text>
-    </View>
+      <Button title="Skip" onPress={() => navigation.navigate("App")} />
+    </Layout>
   );
 };
 

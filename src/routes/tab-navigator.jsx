@@ -1,49 +1,33 @@
-import { StyleSheet } from "react-native";
-import React from "react";
+import { Button, StyleSheet, Text } from "react-native";
+import React, { useEffect } from "react";
 import {
   BottomTabBar,
   createBottomTabNavigator,
+  useBottomTabBarHeight,
 } from "@react-navigation/bottom-tabs";
 import { BlurView } from "@react-native-community/blur";
 import TabBarIcon from "../components/tab-bar-icon";
 import TabBarLabel from "../components/tab-bar-label";
 import ServicesScreen from "../screens/ServicesScreen";
-import NotificationScreen from "../screens/NotificationScreen";
+
 import SettingScreen from "../screens/SettingScreen";
 
-const TabBar = (props) => {
-  console.log("TabBarL: ", props);
-  return (
-    <BlurView
-      blurAmount={100}
-      blurType="light"
-      style={{
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: 0,
-      }}
-    >
-      <BottomTabBar {...props} />
-    </BlurView>
-  );
-};
+import ProfileNavigator from "./profile-navigator";
+
+import { useNavigation } from "@react-navigation/native";
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
+  const navigation = useNavigation();
 
   return (
     <Tab.Navigator
-      tabBar={TabBar}
-      tabBarOptions={{
-        tabStyle: {
-          backgroundColor: "transparent",
-        },
-        style: {
-          backgroundColor: "transparent",
-        },
-      }}
       screenOptions={({ route }) => ({
+        tabBarHideOnKeyboard: true,
+
+        tabBarStyle: {
+          paddingBottom: 5,
+        },
         tabBarLabel: function tabBarLabel({ focused, color }) {
           return (
             <TabBarLabel
@@ -64,9 +48,24 @@ const TabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Sleep" component={ServicesScreen} />
-      <Tab.Screen name="Coaching" component={NotificationScreen} />
-      <Tab.Screen name="Habits" component={SettingScreen} />
+      <Tab.Screen
+        name="Services"
+        component={ServicesScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen name="Setting" component={SettingScreen} />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileNavigator}
+        options={{
+          headerShown: false,
+          tabBarStyle: {
+            display: "none",
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 };

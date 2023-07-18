@@ -2,9 +2,12 @@ import React from "react";
 
 import { StyleSheet, Text } from "react-native";
 
-const TabBarLabel = ({ focused, label }) => {
+const TabBarLabel = ({ focused, label, tintColor }) => {
   return (
-    <Text style={[styles.label, { color: focused ? "#2c0b8e" : "#5e6267" }]}>
+    <Text
+      adjustsFontSizeToFit
+      style={[styles.label, { color: focused ? "#2c0b8e" : "#5e6267" }]}
+    >
       {label.toUpperCase()}
     </Text>
   );

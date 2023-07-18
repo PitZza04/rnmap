@@ -4,14 +4,19 @@ import { StyledButton } from "./src/components/ui/button";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigator from "./src/routes/root-navigator";
+import { enableFreeze } from "react-native-screens";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const App = () => {
+  enableFreeze();
   return (
     <SafeAreaProvider>
-      <StatusBar />
-      <NavigationContainer>
-        <RootNavigator />
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <RootNavigator />
+          <StatusBar />
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   );
 };

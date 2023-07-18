@@ -11,6 +11,7 @@ const SvgIcon = ({
   strokeWidth,
   fillRule,
   stroke,
+  outline,
   viewBox,
 }) => {
   if (!name) {
@@ -48,6 +49,7 @@ const SvgIcon = ({
       style={style}
     >
       {React.cloneElement(svgEl, {
+        outline,
         fill,
         fillRule,
         stroke,
