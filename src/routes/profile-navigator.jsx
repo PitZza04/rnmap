@@ -7,7 +7,10 @@ import TransactionScreen from "../screens/profile/transaction-screen";
 import CartScreen from "../screens/cart/cart-screen";
 import BackButton from "../components/button/back-button";
 import { useNavigation } from "@react-navigation/native";
-import { StackActions } from "@react-navigation/native";
+
+import AboutUsScreen from "../screens/profile/about-us-screen";
+import TermsScreen from "../screens/profile/term-screen";
+import SettingScreen from "../screens/profile/setting-screen";
 const Stack = createNativeStackNavigator();
 
 const ProfileNavigator = () => {
@@ -45,6 +48,9 @@ const ProfileNavigator = () => {
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="Vehicle" component={VehicleScreen} />
       <Stack.Screen name="Transaction" component={TransactionScreen} />
+      <Stack.Screen name="Settings" component={SettingScreen} />
+      <Stack.Screen name="Terms" component={TermsScreen} />
+      <Stack.Screen name="About" component={AboutUsScreen} />
     </Stack.Navigator>
   );
 };

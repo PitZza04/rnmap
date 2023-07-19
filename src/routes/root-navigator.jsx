@@ -5,7 +5,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabNavigator from "./tab-navigator";
 import AuthNavigator from "./auth-navigator";
-import OnboardingScreen from "../screens/OnboardingScreen";
+import { OnboardingScreen } from "../screens/onboarding";
 
 const RootNavigator = () => {
   const RootStack = createNativeStackNavigator();

@@ -2,13 +2,13 @@ import React from "react";
 
 import { StyleSheet, Text } from "react-native";
 
-const TabBarLabel = ({ focused, label, tintColor }) => {
+const TabBarLabel = ({ focused, label }) => {
   return (
     <Text
       adjustsFontSizeToFit
       style={[styles.label, { color: focused ? "#2c0b8e" : "#5e6267" }]}
     >
-      {label.toUpperCase()}
+      {label}
     </Text>
   );
 };
