@@ -8,7 +8,7 @@ import {
 import { BlurView } from "@react-native-community/blur";
 import TabBarIcon from "../components/tab-bar-icon";
 import TabBarLabel from "../components/tab-bar-label";
-
+import Ionicons from "react-native-vector-icons/Ionicons";
 import ProfileNavigator from "./profile-navigator";
 
 import SettingScreen from "../screens/profile/setting-screen";
@@ -26,7 +26,10 @@ const TabNavigator = () => {
         tabBarHideOnKeyboard: true,
 
         tabBarStyle: {
-          paddingBottom: 5,
+          paddingVertical: 5,
+          justifyContent: "center",
+
+          alignItems: "center",
         },
         tabBarLabel: function tabBarLabel({ focused, color }) {
           return <TabBarLabel label={`${route.name}`} focused={focused} />;
@@ -42,18 +45,66 @@ const TabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Services" component={ServicesScreen} />
-      <Tab.Screen name="Notification" component={NotificationScreen} />
-      <Tab.Screen name="Wallet" component={WalletScreen} />
+      <Tab.Screen
+        name="Home"
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return focused ? (
+              <Ionicons name="home-outline" size={25} color="#B61616" />
+            ) : (
+              <Ionicons name="home" size={25} color="#000" />
+            );
+          },
+        }}
+        component={ServicesScreen}
+      />
+      <Tab.Screen
+        name="Notification"
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return focused ? (
+              <Ionicons
+                name="notifications-outline"
+                size={25}
+                color="#B61616"
+              />
+            ) : (
+              <Ionicons name="notifications" size={25} color="#000" />
+            );
+          },
+        }}
+        component={NotificationScreen}
+      />
+      <Tab.Screen
+        name="Wallet"
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return focused ? (
+              <Ionicons name="wallet-outline" size={25} color="#B61616" />
+            ) : (
+              <Ionicons name="wallet" size={25} color="#000" />
+            );
+          },
+        }}
+        component={WalletScreen}
+      />
 
       <Tab.Screen
         name="Profile"
-        component={ProfileNavigator}
         options={{
+          headerStyle: {
+            backgroundColor: "#b61616",
+          },
           tabBarStyle: {
             display: "none",
           },
+          tabBarIcon: () => {
+            return <Ionicons name="person-outline" size={25} color="#000" />;
+          },
+
+          headerShown: false,
         }}
+        component={ProfileNavigator}
       />
     </Tab.Navigator>
   );

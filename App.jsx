@@ -7,15 +7,21 @@ import RootNavigator from "./src/routes/root-navigator";
 import { enableFreeze } from "react-native-screens";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
+import { ThemeProvider } from "@shopify/restyle";
+import theme from "./src/themes";
+
 const App = () => {
   enableFreeze();
+
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <NavigationContainer>
-          <RootNavigator />
-          <StatusBar />
-        </NavigationContainer>
+        <ThemeProvider theme={theme}>
+          <NavigationContainer>
+            <RootNavigator />
+            <StatusBar />
+          </NavigationContainer>
+        </ThemeProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );
