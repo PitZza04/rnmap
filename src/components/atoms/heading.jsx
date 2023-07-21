@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const VehicleScreen = () => {
+const Heading = () => {
   return (
     <View>
-      <Text>VehicleScreen</Text>
+      <Text>Heading</Text>
     </View>
   );
 };
 
-export default VehicleScreen;
+export default Heading;
 
 const styles = StyleSheet.create({});

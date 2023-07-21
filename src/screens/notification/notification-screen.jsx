@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const NotificationScreen = () => {
+const NotificationScreen = ({ navigation }) => {
+  const goBack = () => {
+    navigation.goBack();
+  };
   return (
     <View>
       <Text>NotificationScreen</Text>
+      <Button title="hello" onPress={goBack} />
     </View>
   );
 };

@@ -10,7 +10,12 @@ import { OnboardingScreen } from "../screens/onboarding";
 const RootNavigator = () => {
   const RootStack = createNativeStackNavigator();
   return (
-    <RootStack.Navigator>
+    <RootStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        gestureEnabled: true,
+      }}
+    >
       <RootStack.Screen
         name="App"
         component={TabNavigator}
