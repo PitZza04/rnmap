@@ -1,5 +1,6 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Button } from "../../components/organisms/button";
 
 const NotificationScreen = ({ navigation }) => {
   const goBack = () => {
@@ -8,7 +9,11 @@ const NotificationScreen = ({ navigation }) => {
   return (
     <View>
       <Text>NotificationScreen</Text>
-      <Button title="hello" onPress={goBack} />
+
+      <Button label="Button" variant="primary" />
+      <Button label="Button" variant="outline" />
+      <Button label="PRIMARY BUTTON DISABLED" disabled variant="primary" />
+      <Button label="SECONDARY BUTTON DISABLED" disabled variant="secondary" />
     </View>
   );
 };

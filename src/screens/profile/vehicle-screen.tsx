@@ -9,9 +9,9 @@ import {
   View,
   ViewStyle,
 } from "react-native";
-import React, { FC, useCallback } from "react";
+import React, { FC, useCallback, useState } from "react";
 import Icon from "react-native-vector-icons/Feather";
-
+import { vehicles } from "../../constants/data";
 interface ListVehicleProps {
   vehicle: Vehicle;
   onPress: () => void;
@@ -34,7 +34,7 @@ const Header = () => {
   );
 };
 const ListVehicle: FC<ListVehicleProps> = ({ vehicle, onPress }) => {
-  const { id, brand, model, year, plate } = vehicle;
+  const { brand, model, plate } = vehicle;
   return (
     <View style={styles.root}>
       <Image source={require("../../../assets/swift.png")} />
@@ -43,17 +43,7 @@ const ListVehicle: FC<ListVehicleProps> = ({ vehicle, onPress }) => {
         <Text style={styles.plate}>{`Plate: ${plate}`}</Text>
       </View>
 
-      <View
-        style={[
-          $row,
-          {
-            position: "absolute",
-            alignSelf: "flex-start",
-            paddingTop: 5,
-            right: 0,
-          },
-        ]}
-      >
+      <View style={[$row, styles.btnContainer]}>
         <TouchableOpacity>
           <Icon name="edit" size={20} color={"#229BDF"} />
         </TouchableOpacity>
@@ -62,21 +52,19 @@ const ListVehicle: FC<ListVehicleProps> = ({ vehicle, onPress }) => {
         </TouchableOpacity>
       </View>
 
-      <View
+      <TouchableOpacity
         style={[
           $row,
           {
             position: "absolute",
             alignSelf: "flex-end",
             paddingBottom: 3,
-            right: 0,
-            borderWidth: 1,
-            borderColor: "yellow",
+            right: 5,
           },
         ]}
       >
         <Text style={styles.smText}>Show More Details</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -111,77 +99,19 @@ const VehicleScreen: FC = () => {
     []
   );
   const renderItemSeparator = () => <View style={$paddingMedium} />;
-  const data = [
-    {
-      id: "1",
-      brand: {
-        name: "Mazda",
-        img_url: "",
-      },
-      model: {
-        name: "Guzada",
-        img_url: "",
-      },
-      year: 2000,
-      plate: "ABD 512",
-    },
-    {
-      id: "2",
-      brand: {
-        name: "Mazda",
-        img_url: "",
-      },
-      model: {
-        name: "Guzada",
-        img_url: "",
-      },
-      year: 2000,
-      plate: "ABD 512",
-    },
-    {
-      id: "3",
-      brand: {
-        name: "Mazda",
-        img_url: "",
-      },
-      model: {
-        name: "Guzada",
-        img_url: "",
-      },
-      year: 2000,
-      plate: "ABD 512",
-    },
-  ];
+
   return (
     <View style={$root}>
       <FlatList<Vehicle>
-        data={data}
+        data={vehicles}
         renderItem={renderListItem}
         keyExtractor={keyExtractor}
         ListHeaderComponent={<Header />}
         ItemSeparatorComponent={renderItemSeparator}
       />
-      <TouchableOpacity
-        style={{
-          height: 60,
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#D0D3D9",
-          flexDirection: "row",
-          gap: 20,
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-        }}
-      >
+      <TouchableOpacity style={styles.addBtn}>
         <Icon name="plus" size={20} color={"#000"} />
-        <Text
-          style={{
-            fontSize: 14,
-            color: "#000",
-          }}
-        >
-          Add another vehicle
-        </Text>
+        <Text style={styles.addText}>Add another vehicle</Text>
       </TouchableOpacity>
     </View>
   );
@@ -198,6 +128,7 @@ const $paddingMedium: ViewStyle = {
 const $row: ViewStyle = {
   flexDirection: "row",
 };
+
 const styles = StyleSheet.create({
   root: {
     flexDirection: "row",
@@ -206,11 +137,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     height: 70,
     borderWidth: 1,
-    borderColor: "red",
+    borderColor: "#CECECE",
+    paddingLeft: 14,
+  },
+  btnContainer: {
+    position: "absolute",
+    alignSelf: "flex-start",
+    paddingTop: 5,
+    columnGap: 4,
+    right: 5,
   },
   smText: {
     fontSize: 10,
     fontFamily: "Roboto-Regular",
+    color: "#B61616",
   },
   plate: {
     fontSize: 13,
@@ -222,6 +162,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Roboto-Bold",
     fontWeight: "bold",
+    color: "#000",
+  },
+  addBtn: {
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#D0D3D9",
+    flexDirection: "row",
+    gap: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  addText: {
+    fontSize: 14,
     color: "#000",
   },
 });

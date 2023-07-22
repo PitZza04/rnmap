@@ -2,7 +2,7 @@ import { Text as RNText } from "react-native";
 import React from "react";
 import { colors, typography } from "../../theme";
 
-const Texts = (props) => {
+const Text = (props) => {
   const { weight, size, text, children, styl: $styleOverride, ...rest } = props;
   const content = text || children;
   const preset = $presets[props.preset] ? props.preset : "default";
@@ -62,4 +62,4 @@ const $presets = {
 
   formHelper: [$baseStyle, $sizeStyles.sm, $fontWeightStyles.normal],
 };
-export default Texts;
+export default Text;

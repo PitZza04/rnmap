@@ -8,10 +8,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useLayoutEffect } from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import SafeAreaView from "../../components/templates/safe-area-view";
+import { useNavigation } from "@react-navigation/native";
+import { Header } from "../../components/Header";
+import { colors } from "../../theme";
 
 const Avatar = () => {
   return (
@@ -45,7 +48,27 @@ const WalletBanner = ({ wallet }) => (
   </View>
 );
 
-const ProfileScreen = ({ navigation }) => {
+const ProfileScreen = () => {
+  const navigation = useNavigation();
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerShown: true,
+  //     header: () => (
+  //       <Header
+  //         title="My Profile"
+  //         titleStyle={{
+  //           color: colors.palette.white,
+  //           fontWeight: "bold",
+  //           fontFamily: "Robot-Bold",
+  //         }}
+  //         leftIcon="back"
+  //         backgroundColor="#b61616"
+  //         leftIconColor={colors.white}
+  //         onLeftPress={() => navigation.goBack()}
+  //       />
+  //     ),
+  //   });
+  // }, []);
   const DATA = [
     {
       id: "1",

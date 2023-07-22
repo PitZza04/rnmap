@@ -1,76 +1,74 @@
-import { images, icons } from "../constants";
+// export const donors = [
+//   {
+//     id: "1",
+//     image: images.user1,
+//     name: "Yasin Hossain",
+//     location: "Mohammedpur",
+//     bloodType: "A+",
+//   },
+//   {
+//     id: "2",
+//     image: images.user2,
+//     name: "Mohammed Sami",
+//     location: "Mirpur 10, Dhaka",
+//     bloodType: "AB+",
+//   },
+//   {
+//     id: "3",
+//     image: images.user3,
+//     name: "Rahimun Islam",
+//     location: "Chittagong",
+//     bloodType: "B-",
+//   },
+//   {
+//     id: "4",
+//     image: images.user4,
+//     name: "Rumana",
+//     location: "Lakshmipur",
+//     bloodType: "O+",
+//   },
+//   {
+//     id: "5",
+//     image: images.user5,
+//     name: "Jubayer Ahmed",
+//     location: "Mohammedpur, Dhaka",
+//     bloodType: "A+",
+//   },
+//   {
+//     id: "6",
+//     image: images.user6,
+//     name: "Edward Lio",
+//     location: "Mohammedpur, Dhaka",
+//     bloodType: "B+",
+//   },
+// ];
 
-export const donors = [
-  {
-    id: "1",
-    image: images.user1,
-    name: "Yasin Hossain",
-    location: "Mohammedpur",
-    bloodType: "A+",
-  },
-  {
-    id: "2",
-    image: images.user2,
-    name: "Mohammed Sami",
-    location: "Mirpur 10, Dhaka",
-    bloodType: "AB+",
-  },
-  {
-    id: "3",
-    image: images.user3,
-    name: "Rahimun Islam",
-    location: "Chittagong",
-    bloodType: "B-",
-  },
-  {
-    id: "4",
-    image: images.user4,
-    name: "Rumana",
-    location: "Lakshmipur",
-    bloodType: "O+",
-  },
-  {
-    id: "5",
-    image: images.user5,
-    name: "Jubayer Ahmed",
-    location: "Mohammedpur, Dhaka",
-    bloodType: "A+",
-  },
-  {
-    id: "6",
-    image: images.user6,
-    name: "Edward Lio",
-    location: "Mohammedpur, Dhaka",
-    bloodType: "B+",
-  },
-];
-
-export const categories = [
-  {
-    icon: icons.categoryIcon1,
-    title: "Find Donors",
-  },
-  {
-    icon: icons.categoryIcon2,
-    title: "Donates",
-  },
-  {
-    icon: icons.categoryIcon3,
-    title: "Order Blood",
-  },
-  {
-    icon: icons.categoryIcon4,
-    title: "Assistant",
-  },
-  {
-    icon: icons.categoryIcon5,
-    title: "Report",
-  },
-  {
-    icon: icons.categoryIcon6,
-    title: "Campain",
-  },
-];
+// export const categories = [
+//   {
+//     icon: icons.categoryIcon1,
+//     title: "Find Donors",
+//   },
+//   {
+//     icon: icons.categoryIcon2,
+//     title: "Donates",
+//   },
+//   {
+//     icon: icons.categoryIcon3,
+//     title: "Order Blood",
+//   },
+//   {
+//     icon: icons.categoryIcon4,
+//     title: "Assistant",
+//   },
+//   {
+//     icon: icons.categoryIcon5,
+//     title: "Report",
+//   },
+//   {
+//     icon: icons.categoryIcon6,
+//     title: "Campain",
+//   },
+// ];
 
 export const donationRequests = [
   {
@@ -135,5 +133,47 @@ export const features = [
     id: "6",
     substance: "276 bL",
     volume: "Platelets",
+  },
+];
+
+export const vehicles = [
+  {
+    id: "1",
+    brand: {
+      name: "Mazda",
+      img_url: "",
+    },
+    model: {
+      name: "Guzada",
+      img_url: "",
+    },
+    year: 2000,
+    plate: "ABD 512",
+  },
+  {
+    id: "2",
+    brand: {
+      name: "Mazda",
+      img_url: "",
+    },
+    model: {
+      name: "Guzada",
+      img_url: "",
+    },
+    year: 2000,
+    plate: "ABD 512",
+  },
+  {
+    id: "3",
+    brand: {
+      name: "Mazda",
+      img_url: "",
+    },
+    model: {
+      name: "Guzada",
+      img_url: "",
+    },
+    year: 2000,
+    plate: "ABD 512",
   },
 ];

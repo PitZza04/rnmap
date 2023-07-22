@@ -15,10 +15,12 @@ import SettingScreen from "../screens/profile/setting-screen";
 import ServicesScreen from "../screens/services/services-screen";
 import WalletScreen from "../screens/wallet/wallet-screen";
 import NotificationScreen from "../screens/notification/notification-screen";
+import BackButton from "../components/button/back-button";
+import { useNavigation } from "@react-navigation/native";
 
 const TabNavigator = () => {
   const Tab = createBottomTabNavigator();
-
+  const navigation = useNavigation();
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({

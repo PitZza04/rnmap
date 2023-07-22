@@ -6,13 +6,13 @@ import {
   ViewStyle,
   TouchableOpacity,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useTheme } from "@shopify/restyle";
 import { Center, Flex } from "../../components/atoms";
 
-import Button from "../../components/atoms/button";
-import Texts from "../../components/atoms/texts";
-import PopupModal from "../../components/pop-up-modal";
+import { ScreenHeaderComponent } from "../../components/organisms/screen-header";
+import { IconButton } from "../../components/atoms/icon-button";
+import { useNavigation } from "@react-navigation/native";
 
 const ServicesScreen = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,15 +22,27 @@ const ServicesScreen = () => {
   const closeModal = () => {
     setIsVisible(false);
   };
+  const navigation = useNavigation();
+  const settingsButton = useMemo(
+    () => (
+      <IconButton
+        onPress={() => console.log("hello world")}
+        backgroundColor="transparent"
+        name="cog"
+        color={"#b61616"}
+        key="settings"
+      />
+    ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
   return (
     <View style={$root}>
-      <TouchableOpacity onPress={openModal} style={styles.button}>
-        <Text style={styles.buttonText}>Open Modal</Text>
-      </TouchableOpacity>
-
-      <PopupModal visible={isVisible} onClose={closeModal}>
-        <Text style={styles.modalText}>This is the modal content</Text>
-      </PopupModal>
+      <ScreenHeaderComponent
+        title={"Hello World"}
+        rightActions={[settingsButton]}
+      />
     </View>
   );
 };
